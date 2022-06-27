@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--引入外部配置文件-->
+    <properties resource="db.properties">
+        <property name="username" value="root"/>
+        <property name="password" value="1"/>
+    </properties>
+
+
+    <typeAliases>
+        <!--可以给实体类起别�?-->
+        <typeAlias type="com.ccgui.pojo.User" alias="User" />
+    </typeAliases>
+
+    <environments default="test">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+
+        <environment id="test">
+        <transactionManager type="JDBC"/>
+        <dataSource type="POOLED">
+            <property name="driver" value="${driver}"/>
+            <property name="url" value="${url}"/>
+            <property name="username" value="${username}"/>
+            <property name="password" value="${password}"/>
+        </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <package name="com.ccgui.dao"/>
+    </mappers>
+</configuration>

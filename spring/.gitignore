@@ -1,0 +1,28 @@
+# Compiled class file
+*.class
+
+
+
+# Intellij
+*.ipr
+*.iml
+*.iws
+
+
+# Maven
+target/
+
+# Gradle
+build
+.gradle
+
+# Log file
+*.log
+log/
+
+# out
+**/out/
+
+# Mac
+.DS_Store
+

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="address" class="com.ccgui.pojo.Address">
+        <property name="address" value="1627389570@qq.com"/>
+    </bean>
+
+    <bean id="name" class="com.ccgui.pojo.Student">
+        <!--第一种普通注入-->
+        <property name="name" value="ccgui"/>
+        <!--第二种，Bean注入-->
+        <property name="address" ref="address"/>
+
+        <!--数组注入-->
+        <property name="books">
+            <array>
+                <value>红楼梦</value>
+                <value>西游记</value>
+                <value>三国演义</value>
+                <value>水浒传</value>
+            </array>
+        </property>
+        <!--list-->
+        <property name="hobbies">
+            <list>
+                <value>吃饭</value>
+                <value>睡觉</value>
+            </list>
+        </property>
+
+        <!--map-->
+        <property name="card">
+            <map>
+                <entry key="1" value="ccgui"/>
+            </map>
+        </property>
+
+        <!--set-->
+        <property name="games">
+            <set>
+               <value>斯普拉顿2</value>
+            </set>
+        </property>
+
+        <property name="wife">
+            <null/>
+        </property>
+
+        <property name="info">
+            <props>
+                <prop key="ccgui">xxr@qq.com</prop>
+            </props>
+        </property>
+    </bean>
+
+
+
+
+
+</beans>
