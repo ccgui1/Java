@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="userService" class="com.ccgui.service.UserServiceImpl"/>
+    <bean id="log" class="com.ccgui.log.Log"/>
+    <bean id="afterLog" class="com.ccgui.log.AfterLog"/>
+
+<!--    &lt;!&ndash;配置aop: 导入需要aop的约束&ndash;&gt;-->
+<!--    <aop:config>-->
+<!--       &lt;!&ndash;切入点：expression;表达式,excution(要执行的位置！* * * *)&ndash;&gt;-->
+<!--        <aop:pointcut id="pointcut" expression="execution(* com.ccgui.service.UserServiceImpl.*(..))"/>-->
+<!--        &lt;!&ndash;执行环绕增加&ndash;&gt;-->
+<!--        <aop:advisor advice-ref="log" pointcut-ref="pointcut"/>-->
+<!--        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>-->
+<!--    </aop:config>-->
+<!--    <bean id="diy" class="com.ccgui.diy.DiyPonitCut"/>-->
+<!--    <aop:config>-->
+<!--        &lt;!&ndash;自定义切面，ref要引用类&ndash;&gt;-->
+<!--        <aop:aspect ref="diy">-->
+<!--            &lt;!&ndash;切入点&ndash;&gt;-->
+<!--            <aop:pointcut  id="point" expression="execution(* com.ccgui.service.UserServiceImpl.*(..))"/>-->
+
+<!--            &lt;!&ndash;通知&ndash;&gt;-->
+<!--            <aop:before method="before" pointcut-ref="point"/>-->
+<!--            <aop:after method="after" pointcut-ref="point"/>-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+
+    <!--注解方式-->
+    <bean id="annotaionPointCut" class="com.ccgui.diy.AnnotationPointCut"/>
+    <!--开启注解支持-->
+    <aop:aspectj-autoproxy/>
+
+</beans>
